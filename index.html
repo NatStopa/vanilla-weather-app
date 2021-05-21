@@ -15,7 +15,114 @@
   </head>
   <body>
     <div class="container">
-      <h1>Hello</h1>
+      <div class="weatherContainer">
+        <div class="row ustify-content-md-center searchBarElements">
+          <div class="col-8 searchSection">
+            <form class="searchBar">
+              <input type="text" id="search-input" />
+              <button type="submit" id="search-button" class="buttons">
+                S
+              </button>
+            </form>
+          </div>
+          <div class="col-4 currentLocationSection">
+            <button id="location-button" class="buttons">L</button>
+          </div>
+        </div>
+        <div class="currentCityElements">
+          <h1 id="current-city">Warsaw</h1>
+          <div class="row justify-content-md-center">
+            <div class="col-6">
+              <h2 id="current-date">
+                <span id="current-day-of-week"> Saturday </span><br />
+                <span id="current-hours"> 20</span>:<span id="current-minutes"
+                  >00
+                </span>
+              </h2>
+              <p class="temp"><span id="current-temp">15</span>°C</p>
+              <p class="humidityAndWind">
+                Humidity: <span id="current-humidity"> 0 </span>%
+                <br />
+                Wind: <span id="current-wind"> 10 </span>km/h
+              </p>
+            </div>
+            <div class="col-6">
+              <img
+                src="images/sun.png"
+                alt="Current Condition Icon"
+                id="current-condition-icon"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="forecastElements">
+          <div class="row justify-content-md-center">
+            <div class="col forecastSection">
+              <h3 class="forecastHeading">Sun</h3>
+              <img
+                src="images/sun.png"
+                alt="Condition Icon"
+                class="forecastConditionIcon"
+              />
+              <p class="forecastWeather">
+                <span class="forecastTemp"> 18 </span> °C
+              </p>
+            </div>
+            <div class="col forecastSection">
+              <h3 class="forecastHeading">Mon</h3>
+              <img
+                src="images/sun.png"
+                alt="Condition Icon"
+                class="forecastConditionIcon"
+              />
+              <p class="forecastWeather">
+                <span class="forecastTemp"> 15 </span> °C
+              </p>
+            </div>
+            <div class="col forecastSection">
+              <h3 class="forecastHeading">Tue</h3>
+              <img
+                src="images/sun.png"
+                alt="Condition Icon"
+                class="forecastConditionIcon"
+              />
+              <p class="forecastWeather">
+                <span class="forecastTemp"> 12 </span> °C
+              </p>
+            </div>
+            <div class="col forecastSection">
+              <h3 class="forecastHeading">Wed</h3>
+              <img
+                src="images/sun.png"
+                alt="Condition Icon"
+                class="forecastConditionIcon"
+              />
+              <p class="forecastWeather">
+                <span class="forecastTemp"> 16 </span> °C
+              </p>
+            </div>
+            <div class="col forecastSection">
+              <h3 class="forecastHeading">Thu</h3>
+              <img
+                src="images/sun.png"
+                alt="Condition Icon"
+                class="forecastConditionIcon"
+              />
+              <p class="forecastWeather">
+                <span class="forecastTemp"> 19 </span> °C
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer>
+        <a
+          href="https://github.com/NatStopa/vanilla-weather-app"
+          id="github-link"
+        >
+          Open-source code</a
+        >, by Nat Stopa
+      </footer>
     </div>
     <script src="src/app.js"></script>
   </body>
