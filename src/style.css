@@ -3,6 +3,20 @@ body {
   margin: 20px;
 }
 
+#current-city {
+  font-size: 40px;
+  margin-bottom: 20px;
+  margin-top: 8px;
+}
+
+#current-condition-icon {
+  margin-top: 15px;
+}
+
+#current-date {
+  font-size: 20px;
+}
+
 #search-input {
   border: 1px solid black;
   border-radius: 5px;
@@ -33,8 +47,20 @@ body {
   width: 40px;
 }
 
+.forecastConditionIcon {
+  display: block;
+  margin: 0 auto;
+}
+
 .forecastHeading {
   font-size: 20px;
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+.forecastHeading,
+.forecastWeather {
+  text-align: center;
 }
 
 .forecastSection {
@@ -43,14 +69,32 @@ body {
   margin: 0 10px;
   padding: 3px;
 }
+
+.forecastWeather {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 5px;
+  margin-top: 10px;
+}
+
+.humidityAndWind {
+  font-size: 20px;
+  font-weight: 500;
+  margin: 0;
+}
+
 .searchBarElements {
   width: 493px;
+}
+.temp {
+  font-size: 70px;
+  margin: 0;
 }
 .weatherContainer {
   border: 1px solid black;
   border-radius: 7px;
   margin-bottom: 20px;
-  margin-top: 50px;
+  margin-top: 40px;
   padding: 30px;
   width: 500px;
 }
