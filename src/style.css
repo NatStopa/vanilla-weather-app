@@ -1,3 +1,56 @@
 body {
   font-family: "Spartan", sans-serif;
+  margin: 20px;
+}
+
+#search-input {
+  border: 1px solid black;
+  border-radius: 5px;
+  height: 35px;
+  width: 325px;
+}
+
+.buttons {
+  background-color: transparent;
+  border: 1px solid black;
+  border-radius: 5px;
+  height: 35px;
+  margin: 0;
+  padding: 0;
+  width: 40px;
+}
+
+.currentCityElements {
+  border: 1px solid black;
+  border-radius: 7px;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  padding: 10px;
+}
+
+.currentLocationSection {
+  padding: 0;
+  width: 40px;
+}
+
+.forecastHeading {
+  font-size: 20px;
+}
+
+.forecastSection {
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 0 10px;
+  padding: 3px;
+}
+.searchBarElements {
+  width: 493px;
+}
+.weatherContainer {
+  border: 1px solid black;
+  border-radius: 7px;
+  margin-bottom: 20px;
+  margin-top: 50px;
+  padding: 30px;
+  width: 500px;
 }
