@@ -19,14 +19,26 @@
         <div class="row ustify-content-md-center searchBarElements">
           <div class="col-8 searchSection">
             <form class="searchBar">
-              <input type="text" id="search-input" />
+              <input type="text" id="search-input" autocomplete="off" />
               <button type="submit" id="search-button" class="buttons">
-                S
+                <img
+                  src="images/search.png"
+                  alt="Search Icon"
+                  id="search-icon"
+                  width="28px"
+                />
               </button>
             </form>
           </div>
-          <div class="col-4 currentLocationSection">
-            <button id="location-button" class="buttons">L</button>
+          <div class="col-2 currentLocationSection">
+            <button id="location-button" class="buttons">
+              <img
+                src="images/location.png"
+                alt="Location Icon"
+                id="location-icon"
+                width="30px"
+              />
+            </button>
           </div>
         </div>
         <div class="currentCityElements">
@@ -51,6 +63,7 @@
                 src="images/sun.png"
                 alt="Current Condition Icon"
                 id="current-condition-icon"
+                width="170px"
               />
             </div>
           </div>
@@ -63,6 +76,7 @@
                 src="images/sun.png"
                 alt="Condition Icon"
                 class="forecastConditionIcon"
+                width="45px"
               />
               <p class="forecastWeather">
                 <span class="forecastTemp"> 18 </span> °C
@@ -74,6 +88,7 @@
                 src="images/sun.png"
                 alt="Condition Icon"
                 class="forecastConditionIcon"
+                width="45px"
               />
               <p class="forecastWeather">
                 <span class="forecastTemp"> 15 </span> °C
@@ -85,6 +100,7 @@
                 src="images/sun.png"
                 alt="Condition Icon"
                 class="forecastConditionIcon"
+                width="45px"
               />
               <p class="forecastWeather">
                 <span class="forecastTemp"> 12 </span> °C
@@ -96,6 +112,7 @@
                 src="images/sun.png"
                 alt="Condition Icon"
                 class="forecastConditionIcon"
+                width="45px"
               />
               <p class="forecastWeather">
                 <span class="forecastTemp"> 16 </span> °C
@@ -107,6 +124,7 @@
                 src="images/sun.png"
                 alt="Condition Icon"
                 class="forecastConditionIcon"
+                width="45px"
               />
               <p class="forecastWeather">
                 <span class="forecastTemp"> 19 </span> °C
@@ -119,6 +137,7 @@
         <a
           href="https://github.com/NatStopa/vanilla-weather-app"
           id="github-link"
+          target="_blank"
         >
           Open-source code</a
         >, by Nat Stopa
