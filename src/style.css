@@ -5,6 +5,10 @@ body {
   margin: 20px;
 }
 
+footer {
+  text-align: center;
+}
+
 ::placeholder {
   color: #fdfdfd98;
 }
@@ -23,12 +27,15 @@ body {
   font-size: 20px;
 }
 
+#github-link {
+  color: #59a1eb;
+}
+
 #search-input {
   background: linear-gradient(60deg, #e35c91, #59a1eb);
   border: 1px solid #0a4377;
   border-radius: 5px;
-  box-shadow: 3px 3px 6px #010911, -2px -2px 6px #0f60a8,
-    inset -3px -3px 20px #042647;
+  box-shadow: 3px 3px 6px #010911, -2px -2px 6px #0f60a8;
   color: #fafafa;
   height: 39px;
   margin-right: 5px;
@@ -100,19 +107,22 @@ body {
 .searchBarElements {
   width: 493px;
 }
+
 .searchSection {
   padding-right: 0;
 }
+
 .temp {
   font-size: 70px;
   margin: 0;
 }
+
 .weatherContainer {
   border: 1px solid transparent;
   border-radius: 7px;
   box-shadow: 5px 5px 10px #010911, -4px -4px 8px #0a4377;
-  margin-bottom: 20px;
-  margin-top: 20px;
+  display: block;
+  margin: 60px auto 20px auto;
   padding: 30px;
   width: 500px;
 }
