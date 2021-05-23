@@ -53,6 +53,10 @@ footer {
   width: 40px;
 }
 
+.buttons:hover {
+  box-shadow: inset 3px 3px 8px #010911, inset -2px -3px 4px #0a4377;
+}
+
 .currentCityElements {
   border: 1px solid transparent;
   border-radius: 7px;
