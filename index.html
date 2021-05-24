@@ -57,7 +57,14 @@
           <div class="row justify-content-md-center">
             <div class="col-6">
               <h2 id="current-date"></h2>
-              <p class="temp"><span id="current-temp"></span>°C</p>
+              <h2 id="current-description"></h2>
+              <p class="temp">
+                <span id="current-temp"></span
+                ><span id="units">
+                  <a href="#" id="celsius-link" class="active">°C</a> |
+                  <a href="#" id="fahrenheit-link">°F</a>
+                </span>
+              </p>
               <p class="humidityAndWind">
                 Humidity: <span id="current-humidity"></span>%
                 <br />

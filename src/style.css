@@ -1,3 +1,13 @@
+a {
+  color: #59a1eb;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #59a1eb;
+}
+
 body {
   background-color: #042647;
   color: #fafafa;
@@ -23,8 +33,13 @@ footer {
   margin-top: 15px;
 }
 
-#current-date {
+#current-date,
+#current-description {
   font-size: 20px;
+}
+
+#current-description:first-letter {
+  text-transform: capitalize;
 }
 
 #github-link {
@@ -41,6 +56,10 @@ footer {
   margin-right: 5px;
   padding-left: 6px;
   width: 340px;
+}
+
+#units {
+  font-size: 20px;
 }
 
 .buttons {
@@ -120,6 +139,16 @@ footer {
 .temp {
   font-size: 70px;
   margin: 0;
+}
+
+.temp .active {
+  color: #fafafa;
+  cursor: default;
+  text-decoration: none;
+}
+
+.temp .active:hover {
+  text-decoration: none;
 }
 
 .weatherContainer {
