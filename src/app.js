@@ -1,13 +1,5 @@
-function formatDate(timestamp) {
-  let date = new Date(timestamp);
-  let hours = date.getHours();
-  if (hours < 10) {
-    hours = `0${hours}`;
-  }
-  let minutes = date.getMinutes();
-  if (minutes < 10) {
-    minutes = `0${minutes}`;
-  }
+function displayDate() {
+  let date = new Date();
   let days = [
     "Sunday",
     "Monday",
@@ -17,8 +9,21 @@ function formatDate(timestamp) {
     "Friday",
     "Saturday",
   ];
+  let dateElement = document.querySelector("#current-day");
   let day = days[date.getDay()];
-  return `${day} ${hours}:${minutes}`;
+  let hours = date.getHours();
+  let hoursElement = document.querySelector("#current-hours");
+  let minutes = date.getMinutes();
+  let minutesElement = document.querySelector("#current-minutes");
+  dateElement.innerHTML = `${day}`;
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  hoursElement.innerHTML = `${hours}`;
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  minutesElement.innerHTML = `${minutes}`;
 }
 
 function displayTemp(response) {
@@ -26,17 +31,13 @@ function displayTemp(response) {
   let cityElement = document.querySelector("#current-city");
   let humidityElement = document.querySelector("#current-humidity");
   let windElement = document.querySelector("#current-wind");
-  let dateElement = document.querySelector("#current-date");
   let iconElement = document.querySelector("#current-condition-icon");
-  let descriptionElement = document.querySelector("#current-description");
   let descriptionId = response.data.weather[0].id;
   celsiusTemp = response.data.main.temp;
   tempElement.innerHTML = Math.round(celsiusTemp);
   cityElement.innerHTML = response.data.name;
   humidityElement.innerHTML = response.data.main.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed);
-  descriptionElement.innerHTML = response.data.weather[0].description;
-  dateElement.innerHTML = formatDate(response.data.dt * 1000);
   if (descriptionId === 801) {
     iconElement.setAttribute("src", `images/few_clouds.png`);
   } else if (descriptionId === 802) {
@@ -121,3 +122,5 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemp);
 
 searchCity("Warsaw");
+
+displayDate();
