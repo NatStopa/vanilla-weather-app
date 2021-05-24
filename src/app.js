@@ -107,6 +107,32 @@ function displayCelsiusTemp(event) {
   tempElement.innerHTML = Math.round(celsiusTemp);
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector(".forecastElements");
+  let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
+  let forecastHTML = `<div class="row justify-content-md-center">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+    <div class="col forecastSection">
+              <h3 class="forecastHeading">${day}</h3>
+              <img
+                src="images/shower_rain.png"
+                alt="Condition Icon"
+                class="forecastConditionIcon"
+                width="45px"
+              />
+              <p class="forecastWeather">
+                <span class="forecastTemp">18</span>°C
+              </p>
+            </div>
+  `;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 let celsiusTemp = null;
 
 let searchForm = document.querySelector(".searchBar");
@@ -124,3 +150,5 @@ celsiusLink.addEventListener("click", displayCelsiusTemp);
 searchCity("Warsaw");
 
 displayDate();
+
+displayForecast();
