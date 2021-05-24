@@ -29,8 +29,6 @@ function displayTemp(response) {
   let dateElement = document.querySelector("#current-date");
   let iconElement = document.querySelector("#current-condition-icon");
   let descriptionId = response.data.weather[0].id;
-  console.log(response.data.weather);
-  console.log(descriptionId);
   tempElement.innerHTML = Math.round(response.data.main.temp);
   cityElement.innerHTML = response.data.name;
   humidityElement.innerHTML = response.data.main.humidity;
@@ -62,8 +60,36 @@ function displayTemp(response) {
   }
 }
 
-let apiKey = "02ae2bfab4b783181c5ec4a0935ec345";
-let unit = "metric";
-let city = "Krakow";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${unit}&appid=${apiKey}`;
-axios.get(apiUrl).then(displayTemp);
+function searchCity(city) {
+  let apiKey = "02ae2bfab4b783181c5ec4a0935ec345";
+  let unit = "metric";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${unit}&appid=${apiKey}`;
+  axios.get(apiUrl).then(displayTemp);
+}
+
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#search-input");
+  searchCity(cityInputElement.value);
+}
+
+function currentLocation(position) {
+  let latitude = position.coords.latitude;
+  let longitude = position.coords.longitude;
+  let apiKey = "02ae2bfab4b783181c5ec4a0935ec345";
+  let unit = "metric";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=${unit}&APPID=${apiKey}`;
+  axios.get(apiUrl).then(displayTemp);
+}
+
+function getPosition() {
+  navigator.geolocation.getCurrentPosition(currentLocation);
+}
+
+let searchForm = document.querySelector(".searchBar");
+searchForm.addEventListener("submit", handleSubmit);
+
+let locationButton = document.querySelector("#location-button");
+locationButton.addEventListener("click", getPosition);
+
+searchCity("Warsaw");
