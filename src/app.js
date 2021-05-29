@@ -26,42 +26,65 @@ function displayDate() {
   minutesElement.innerHTML = `${minutes}`;
 }
 
+function formatForecastDate(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
+
+function displayForecast(response) {
+  let forecast = response.data.daily;
+  let forecastElement = document.querySelector(".forecastElements");
+  let forecastHTML = `<div class="row justify-content-md-center">`;
+  forecast.forEach(function (forecastDay, index) {
+    console.log(forecastDay.weather[0].icon);
+    if (index < 6 && index > 0) {
+      forecastHTML =
+        forecastHTML +
+        `
+        <div class="col forecastSection">
+        <h3 class="forecastHeading">${formatForecastDate(forecastDay.dt)}</h3>
+        <img
+        src="images/${forecastDay.weather[0].icon}.png"
+        alt="Condition Icon"
+        class="forecastConditionIcon"
+        width="45px"
+        />
+        <p class="forecastWeather">
+        <span class="forecastTemp">${Math.round(forecastDay.temp.day)}</span>°C
+          </p>
+          </div>
+          `;
+    }
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  let apiKey = "02ae2bfab4b783181c5ec4a0935ec345";
+  let unit = "metric";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=${unit}`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function displayTemp(response) {
   let tempElement = document.querySelector("#current-temp");
   let cityElement = document.querySelector("#current-city");
   let humidityElement = document.querySelector("#current-humidity");
   let windElement = document.querySelector("#current-wind");
   let iconElement = document.querySelector("#current-condition-icon");
-  let descriptionId = response.data.weather[0].id;
   celsiusTemp = response.data.main.temp;
   tempElement.innerHTML = Math.round(celsiusTemp);
   cityElement.innerHTML = response.data.name;
   humidityElement.innerHTML = response.data.main.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed);
-  if (descriptionId === 801) {
-    iconElement.setAttribute("src", `images/few_clouds.png`);
-  } else if (descriptionId === 802) {
-    iconElement.setAttribute("src", `images/scattered_clouds.png`);
-  } else if (descriptionId === 803 || descriptionId === 804) {
-    iconElement.setAttribute("src", `images/broken_clouds.png`);
-  } else if (descriptionId === 800) {
-    iconElement.setAttribute("src", `images/clear_sky.png`);
-  } else if (
-    (descriptionId >= 600 && descriptionId < 623) ||
-    descriptionId === 511
-  ) {
-    iconElement.setAttribute("src", `images/snow.png`);
-  } else if (descriptionId >= 300 && descriptionId < 322) {
-    iconElement.setAttribute("src", `images/broken_clouds.png`);
-  } else if (descriptionId >= 200 && descriptionId < 233) {
-    iconElement.setAttribute("src", `images/thunderstorm.png`);
-  } else if (descriptionId >= 701 && descriptionId < 782) {
-    iconElement.setAttribute("src", `images/mist.png`);
-  } else if (descriptionId >= 500 && descriptionId < 505) {
-    iconElement.setAttribute("src", `images/cloudy.png`);
-  } else if (descriptionId >= 520 && descriptionId < 532) {
-    iconElement.setAttribute("src", `images/shower_rain.png`);
-  }
+  iconElement.setAttribute(
+    "src",
+    `images/${response.data.weather[0].icon}.png`
+  );
+  getForecast(response.data.coord);
 }
 
 function searchCity(city) {
@@ -107,33 +130,8 @@ function displayCelsiusTemp(event) {
   tempElement.innerHTML = Math.round(celsiusTemp);
 }
 
-function displayForecast() {
-  let forecastElement = document.querySelector(".forecastElements");
-  let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
-  let forecastHTML = `<div class="row justify-content-md-center">`;
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
-    <div class="col forecastSection">
-              <h3 class="forecastHeading">${day}</h3>
-              <img
-                src="images/shower_rain.png"
-                alt="Condition Icon"
-                class="forecastConditionIcon"
-                width="45px"
-              />
-              <p class="forecastWeather">
-                <span class="forecastTemp">18</span>°C
-              </p>
-            </div>
-  `;
-  });
-  forecastHTML = forecastHTML + `</div>`;
-  forecastElement.innerHTML = forecastHTML;
-}
-
 let celsiusTemp = null;
+let iconSource = null;
 
 let searchForm = document.querySelector(".searchBar");
 searchForm.addEventListener("submit", handleSubmit);
@@ -150,5 +148,3 @@ celsiusLink.addEventListener("click", displayCelsiusTemp);
 searchCity("Warsaw");
 
 displayDate();
-
-displayForecast();
