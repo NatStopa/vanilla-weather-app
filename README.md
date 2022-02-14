@@ -1,5 +1,5 @@
 # vanilla-weather-app
-### Weather Page built with HTML, CSS and JavaScript
+#### Weather Page built with HTML, CSS and JavaScript
 
 ### This web page is hosted here!
 > https://nat-js-weather.netlify.app/
