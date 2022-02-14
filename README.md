@@ -39,7 +39,7 @@ Project is: _no longer being worked on_
 
 ## Sources
 * Fonts: Spartan by [Google Fonts](https://fonts.google.com/specimen/Spartan?query=spartan) 
-* Icons: <a href="https://www.flaticon.com/free-icons/moon" title="moon icons">Moon icons created by iconixar - Flaticon</a>
+* Icons: <a href="https://www.flaticon.com/packs/weather-161?style_id=982&family_id=250&group_id=292" title="moon icons">Moon icons created by iconixar - Flaticon</a>
 * Design by me
 >This Website is made for [SheCodes Basics Course](https://www.shecodes.io/workshop) 
 
